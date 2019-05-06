@@ -22,7 +22,6 @@ public class ZhangWuController {
      * @author      小光
      * @date        2019/5/6 15:29
      * description  //TODO
-     * @param       [startDate, endDate]
      * @return      java.util.List<cn.xgblack.gjp.domain.ZhangWu>
      */
     public List<ZhangWu> select(String startDate, String endDate) {

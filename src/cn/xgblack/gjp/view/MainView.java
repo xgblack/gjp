@@ -5,6 +5,8 @@ import cn.xgblack.gjp.domain.ZhangWu;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author 小光
@@ -98,10 +100,30 @@ public class MainView {
     public void select(){
         System.out.println("查询条件，输入日期格式XXXX-XX-XX");
         Scanner scanner = new Scanner(System.in);
-        System.out.print("请输入开始日期：");
-        String startDate = scanner.nextLine();
-        System.out.print("请输入结束日期：");
-        String endDate = scanner.nextLine();
+        //查询的开始日期
+        String startDate = "";
+        //查询的结束日期
+        String endDate = "";
+
+        while (true){
+            System.out.print("请输入开始日期：");
+            startDate = scanner.nextLine();
+            if (isDate(startDate)){
+                break;
+            }else {
+                System.out.println("日期格式错误，请重新输入，日期格式为XXXX-XX-XX");;
+            }
+        }
+        while (true){
+            System.out.print("请输入结束日期：");
+            endDate = scanner.nextLine();
+            if (isDate(endDate)){
+                break;
+            }else {
+                System.out.println("日期格式错误，请重新输入，日期格式为XXXX-XX-XX");;
+            }
+        }
+
         //调用Controller层的
         List<ZhangWu> list = controller.select(startDate,endDate);
         if (list != null){
@@ -127,6 +149,18 @@ public class MainView {
                     zhangwu.getMoney(),zhangwu.getCreatetime(),zhangwu.getDescription()
             );
         }
+    }
+
+    /**
+     * 判断输入日期格式是否正确
+     * @param str
+     * @return boolean
+     */
+    private static boolean isDate(String str){
+        String pattern = "(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))-02-29)";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(str);
+        return m.matches();
     }
 
 }
