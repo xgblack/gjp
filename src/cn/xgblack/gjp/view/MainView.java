@@ -112,18 +112,19 @@ public class MainView {
 
     }
 
+    /**
+     * 遍历打印List<ZhangWu>集合
+     * @param list
+     */
     private static void pritList(List<ZhangWu> list) {
         //输出表头
-        System.out.println("ID\t\t类别\t\t账户\t\t金额\t\t时间\t\t说明");
+        System.out.printf("%-20s %-20s %-20s %-20s %-20s %-20s %n","ID","类别","账户","金额","时间","说明");
         //遍历集合，输出结果到控制台
         for (ZhangWu zhangwu:list){
-            System.out.println(
-                    zhangwu.getZwid() + "\t\t"
-                            + zhangwu.getFlname() + "\t\t"
-                            + zhangwu.getZhanghu() + "\t\t"
-                            + zhangwu.getMoney() + "\t\t"
-                            + zhangwu.getDate() + "\t\t"
-                            + zhangwu.getDescription()
+
+            System.out.printf("%-20s %-20s %-20s %-20s %-20s %-20s %n",
+                    zhangwu.getZwid(),zhangwu.getFlname(),zhangwu.getZhanghu(),
+                    zhangwu.getMoney(),zhangwu.getCreatetime(),zhangwu.getDescription()
             );
         }
     }
