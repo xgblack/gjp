@@ -1,6 +1,8 @@
 package cn.xgblack.gjp.domain;
 
 
+import java.sql.Date;
+
 /**
  * @author 小光
  * @date 2019/5/6 10:37
@@ -25,7 +27,7 @@ public class ZhangWu {
     private String zhanghu;
 
 	//创建日期
-    private String date;
+    private Date createtime;
 
     //描述
     private String description;
@@ -35,12 +37,12 @@ public class ZhangWu {
     public ZhangWu() {
     }
 
-    public ZhangWu(int zwid, String flname, double money, String zhanghu, String date, String description) {
+    public ZhangWu(int zwid, String flname, double money, String zhanghu, Date createtime, String description) {
         this.zwid = zwid;
         this.flname = flname;
         this.money = money;
         this.zhanghu = zhanghu;
-        this.date = date;
+        this.createtime = createtime;
         this.description = description;
     }
 
@@ -51,7 +53,7 @@ public class ZhangWu {
                 ", flname='" + flname + '\'' +
                 ", money=" + money +
                 ", zhanghu='" + zhanghu + '\'' +
-                ", date='" + date + '\'' +
+                ", createtime='" + createtime + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
@@ -88,12 +90,12 @@ public class ZhangWu {
         this.zhanghu = zhanghu;
     }
 
-    public String getDate() {
-        return date;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
     public String getDescription() {
