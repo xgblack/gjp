@@ -21,6 +21,29 @@ import java.util.List;
 public class ZhangWuDao {
     private static QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
 
+
+    public int addZhangWu(ZhangWu zhangwu) {
+        String sql = "INSERT INTO gjp_zhangwu (flname,money,zhanghu,createtime,description) VALUES(?,?,?,?,?);";
+        Object[] params = {zhangwu.getFlname(),zhangwu.getMoney(),zhangwu.getZhanghu(),zhangwu.getCreatetime(),zhangwu.getDescription()};
+
+        //queryRunner.query(sql, params);
+        try {
+            int row = queryRunner.update(sql, params);
+            return row;
+        } catch (SQLException e) {
+            System.out.println(e);
+            throw new RuntimeException("数据库更新失败");
+        }
+    }
+
+
+
+    /**
+     * 条件查询
+     * @param startDate
+     * @param endDate
+     * @return 返回List<ZhangWu>   为数据库查询结果
+     */
     public List<ZhangWu> select(String startDate, String endDate) {
         String sql = "SELECT * FROM gjp_zhangwu WHERE createtime BETWEEN ? AND ? ;";
         try {

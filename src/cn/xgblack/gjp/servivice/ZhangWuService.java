@@ -21,6 +21,16 @@ public class ZhangWuService {
 
 
     /**
+     * 定义方法：添加账务方法
+     *          此方法调用dao层，被Controller层调用
+     * @param zhangWu
+     * @return
+     */
+    public int addZhangWu(ZhangWu zhangWu){
+        return dao.addZhangWu(zhangWu);
+    }
+
+    /**
      * @author      小光
      * @date        2019/5/6 15:30
      * description  //TODO

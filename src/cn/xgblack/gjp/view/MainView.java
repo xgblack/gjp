@@ -2,7 +2,9 @@ package cn.xgblack.gjp.view;
 
 import cn.xgblack.gjp.controller.ZhangWuController;
 import cn.xgblack.gjp.domain.ZhangWu;
+import com.sun.deploy.util.SyncAccess;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -39,7 +41,7 @@ public class MainView {
             //对选择的菜单进行判断，调用不同的功能
             if (choose == 1){
                 //1.添加账务，调用添加账务方法
-                //break;
+                addZhangWu();
             }else if (choose == 2){
                 //2.编辑账务，调用编辑账务方法
                 //break;
@@ -60,6 +62,37 @@ public class MainView {
 
 
         }
+    }
+
+    public void addZhangWu(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("请输入类别：");
+        String flname = scanner.nextLine();
+        System.out.print("请输入账户：");
+        String zhanghu = scanner.nextLine();
+        System.out.print("请输入金额：");
+        double money = scanner.nextDouble();
+
+        String inputtime = "";
+
+        while (!isDate(inputtime)){
+            System.out.print("请输入日期，日期格式为XXXX-XX-XX：");
+            inputtime = scanner.nextLine();
+        }
+        Date createtime = Date.valueOf(inputtime);
+
+        System.out.print("请输入说明：");
+        String description = scanner.nextLine();
+
+        ////ZhangWu对象
+        ZhangWu zhangWu = new ZhangWu(0,flname,money,zhanghu,createtime,description);
+        int row = controller.addZhangWu(zhangWu);
+        if (row != 1 ){
+            System.out.println("添加失败...");
+        }else {
+            System.out.printf("成功添加%d条数据%n",row);
+        }
+
     }
 
     /**

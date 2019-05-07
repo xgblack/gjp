@@ -19,6 +19,17 @@ public class ZhangWuController {
     private ZhangWuService service = new ZhangWuService();
 
     /**
+     * 定义方法：添加账务方法
+     *          此方法为View层调用，调用Service层
+     * @param zhangWu
+     * @return int   数据库操作条数，此处应为1或者0
+     */
+    public int addZhangWu(ZhangWu zhangWu){
+        return service.addZhangWu(zhangWu);
+    }
+
+
+    /**
      * @author      小光
      * @date        2019/5/6 15:29
      * description  //TODO
