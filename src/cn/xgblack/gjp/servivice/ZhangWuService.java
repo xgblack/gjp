@@ -19,6 +19,27 @@ import java.util.List;
 public class ZhangWuService {
     private ZhangWuDao dao = new ZhangWuDao();
 
+    /**
+     * 定义方法：删除账务
+     *         被controller层调用，调用dao层的方法
+     * @param ids
+     * @return int rows   操作数据库的条数
+     */
+    public int deleteZhangWu(String[] ids) {
+        return dao.deleteZhangWu(ids);
+    }
+
+
+    /**
+     * 定义方法：修改账务方法
+     *          此方法为Controller层调用，调用dao层
+     * @param zhangWu
+     * @return int   数据库操作条数，此处应为1或者0
+     */
+    public int editZhangWu(ZhangWu zhangWu){
+        return dao.editZhangWu(zhangWu);
+    }
+
 
     /**
      * 定义方法：添加账务方法

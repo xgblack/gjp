@@ -21,7 +21,55 @@ import java.util.List;
 public class ZhangWuDao {
     private static QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
 
+    public int deleteZhangWu(String[] ids) {
+        int rows = 0;
+        try {
+            String sql = "DELETE FROM gjp_zhangwu WHERE zwid = ?;";
+            //遍历数组，依次删除多条数据
+            for (int i = 0; i < ids.length; i++) {
+                queryRunner.update(sql, Integer.parseInt(ids[i]));
+                rows++;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+            throw new RuntimeException("数据库删除失败");
+        }
+        return rows;
+    }
 
+
+    /**
+     * 定义方法：修改账务
+     * @param zhangwu
+     * @return row  数据库操作条数
+     */
+    public int editZhangWu(ZhangWu zhangwu){
+        String sql = "UPDATE gjp_zhangwu SET flname = ?,money = ?,zhanghu = ?,createtime = ?,description = ?  WHERE zwid = ?;";
+        Object[] params = {
+                zhangwu.getFlname(),
+                zhangwu.getMoney(),
+                zhangwu.getZhanghu(),
+                zhangwu.getCreatetime(),
+                zhangwu.getDescription(),
+                zhangwu.getZwid()
+        };
+        int row = -1;
+        try {
+            row = queryRunner.update(sql, params);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return row;
+    }
+
+
+    /**
+     * 定义方法：添加账务
+     *         此方法由Service层调用
+     * @param zhangwu
+     * @return row  返回数据库操作条数
+     */
     public int addZhangWu(ZhangWu zhangwu) {
         String sql = "INSERT INTO gjp_zhangwu (flname,money,zhanghu,createtime,description) VALUES(?,?,?,?,?);";
         Object[] params = {zhangwu.getFlname(),zhangwu.getMoney(),zhangwu.getZhanghu(),zhangwu.getCreatetime(),zhangwu.getDescription()};

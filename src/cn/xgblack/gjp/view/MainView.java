@@ -44,10 +44,10 @@ public class MainView {
                 addZhangWu();
             }else if (choose == 2){
                 //2.编辑账务，调用编辑账务方法
-                //break;
+                editZhangWu();
             }else if (choose == 3){
                 //3.删除账务，调用删除账务方法
-                //break;
+                deleteZhangWu();
             }else if (choose == 4){
                 //4.查询账务，调用查询账务方法
                 selectZhangWu();
@@ -64,6 +64,81 @@ public class MainView {
         }
     }
 
+    /**
+     * 定义方法：删除账务功能，调用controller层
+     */
+    public void deleteZhangWu(){
+        //首先查询全表
+        selectAll();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("请输入要删除的id编号，多个id用空格分开：");
+        //接收多个id
+        String allId = scanner.nextLine().trim();
+        String[] ids = allId.split(" ");
+
+        int rows = controller.deleteZhangWu(ids);
+
+        if (rows < 0){
+            System.out.println("删除失败");
+        }else {
+            System.out.printf("您成功删除了%d条数据%n",rows);
+        }
+    }
+
+    /**
+     * 定义方法：删除账务功能，调用controller层
+     */
+    public void editZhangWu(){
+        //首先查询全表
+        selectAll();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("请输入要编辑的id编号：");
+        int zwid = scanner.nextInt();
+
+        //多余的字符串，解决nextInt（）后无法输入类别的问题，将Enter过滤掉
+        String duoyu =  scanner.nextLine();
+
+        System.out.print("请输入类别：");
+        String flname = scanner.nextLine();
+
+        System.out.print("请输入账户：");
+        String zhanghu = scanner.nextLine();
+
+        System.out.print("请输入金额：");
+        double money = scanner.nextDouble();
+
+        //多余的字符串，解决nextInt（）后无法输入类别的问题，将Enter过滤掉
+        duoyu =  scanner.nextLine();
+
+        String inputtime = "";
+
+        while (!isDate(inputtime)){
+            System.out.print("请输入日期，日期格式为XXXX-XX-XX：");
+            inputtime = scanner.nextLine();
+        }
+        Date createtime = Date.valueOf(inputtime);
+
+        System.out.print("请输入说明：");
+        String description = scanner.nextLine();
+
+        ////ZhangWu对象
+        ZhangWu zhangWu = new ZhangWu(zwid,flname,money,zhanghu,createtime,description);
+        int row = controller.editZhangWu(zhangWu);
+        if (row != 1 ){
+            System.out.println("修改失败...");
+        }else {
+            System.out.printf("成功修改%d条数据%n",row);
+        }
+    }
+
+
+    /**
+     * 定义方法：添加账务方法
+     *          调用controller层方法
+     */
     public void addZhangWu(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("请输入类别：");
@@ -72,6 +147,9 @@ public class MainView {
         String zhanghu = scanner.nextLine();
         System.out.print("请输入金额：");
         double money = scanner.nextDouble();
+
+        //多余的字符串，解决nextInt（）后无法输入类别的问题，将Enter过滤掉
+        String duoyu =  scanner.nextLine();
 
         String inputtime = "";
 

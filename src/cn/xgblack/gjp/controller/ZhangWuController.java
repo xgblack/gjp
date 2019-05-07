@@ -19,6 +19,27 @@ public class ZhangWuController {
     private ZhangWuService service = new ZhangWuService();
 
     /**
+     * 定义方法：删除账务
+     *         被view层调用，调用service层的方法
+     * @param ids
+     * @return int rows   操作数据库的条数
+     */
+    public int deleteZhangWu(String[] ids) {
+        return service.deleteZhangWu(ids);
+    }
+
+
+    /**
+     * 定义方法：修改账务方法
+     *          此方法为View层调用，调用Service层
+     * @param zhangWu
+     * @return int   数据库操作条数，此处应为1或者0
+     */
+    public int editZhangWu(ZhangWu zhangWu){
+        return service.editZhangWu(zhangWu);
+    }
+
+    /**
      * 定义方法：添加账务方法
      *          此方法为View层调用，调用Service层
      * @param zhangWu
