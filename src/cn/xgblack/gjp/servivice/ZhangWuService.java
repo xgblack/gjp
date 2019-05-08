@@ -20,6 +20,17 @@ public class ZhangWuService {
     private ZhangWuDao dao = new ZhangWuDao();
 
     /**
+     * 定义方法：备份账务
+     *         调用dao层的方法
+     *         被controller层调用
+     * @return  boolean flag  是否备份成功
+     */
+    public boolean backupZhangWu(){
+        return dao.backupZhangWu();
+    }
+
+
+    /**
      * 定义方法：删除账务
      *         被controller层调用，调用dao层的方法
      * @param ids

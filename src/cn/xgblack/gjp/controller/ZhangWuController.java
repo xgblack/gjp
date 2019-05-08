@@ -19,6 +19,16 @@ public class ZhangWuController {
     private ZhangWuService service = new ZhangWuService();
 
     /**
+     * 定义方法：备份账务
+     *         调用service层的方法
+     *         被view层调用
+     * @return  boolean flag  是否备份成功
+     */
+    public boolean backupZhangWu(){
+        return service.backupZhangWu();
+    }
+
+    /**
      * 定义方法：删除账务
      *         被view层调用，调用service层的方法
      * @param ids

@@ -33,8 +33,9 @@ public class MainView {
 
         while (true){
             System.out.println("---------------管家婆家庭记账软件---------------");
-            System.out.println("1.添加账务\t\t2.编辑账务\t\t3.删除账务\t\t4.查询账务\t\t5.退出系统");
-            System.out.println("请输入要操作的功能序号[1-5]:");
+            System.out.println("1.添加账务\t\t2.编辑账务\t\t3.删除账务\t\t4.查询账务\t\t5.备份账务数据库到本地（XML）");
+            System.out.println("6.退出");
+            System.out.println("请输入要操作的功能序号[1-6]:");
 
             //接收用户菜单选择
             int choose = scanner.nextInt();
@@ -51,9 +52,11 @@ public class MainView {
             }else if (choose == 4){
                 //4.查询账务，调用查询账务方法
                 selectZhangWu();
-                //break;
             }else if (choose == 5){
-                //5.退出系统
+                //5.备份账务数据库到本地（XML），调用备份账务方法
+                backupZhangWu();
+            }else if (choose == 6){
+                //6.退出系统
                 System.exit(0);
                 //break;
             }else {
@@ -61,6 +64,19 @@ public class MainView {
             }
 
 
+        }
+    }
+
+    /**
+     * 定义方法：备份账务
+     *          调用controller层
+     */
+    public void backupZhangWu(){
+        boolean flag = controller.backupZhangWu();
+        if (flag){
+            System.out.println("恭喜备份成功！！！");
+        }else {
+            System.out.println("备份失败");
         }
     }
 

@@ -5,6 +5,7 @@ import cn.xgblack.gjp.view.MainView;
 /**
  * @author 小光
  * @date 2019/5/6 13:14
+ * @version v 1.1
  * className: MainApp
  * description: 主程序类
  *              作用：开启软件程序

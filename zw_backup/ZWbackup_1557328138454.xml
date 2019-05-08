@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ZhangWu>
+  <!--gjp_zhangwu备份（xml）-->
+  <!--备份时间：2019年05月08日 23:08:58-->
+  <zhangwu zwid="1">
+    <flname>吃饭支出</flname>
+    <money>247.0</money>
+    <zhanghu>交通银行</zhanghu>
+    <createtime>2016-03-02</createtime>
+    <description>家庭聚餐</description>
+  </zhangwu>
+  <zhangwu zwid="2">
+    <flname>工资收入</flname>
+    <money>12345.0</money>
+    <zhanghu>现金</zhanghu>
+    <createtime>2016-03-15</createtime>
+    <description>开工资了</description>
+  </zhangwu>
+  <zhangwu zwid="3">
+    <flname>服装支出</flname>
+    <money>1998.0</money>
+    <zhanghu>现金</zhanghu>
+    <createtime>2016-04-02</createtime>
+    <description>买衣服</description>
+  </zhangwu>
+  <zhangwu zwid="4">
+    <flname>吃饭支出</flname>
+    <money>325.0</money>
+    <zhanghu>现金</zhanghu>
+    <createtime>2016-06-18</createtime>
+    <description>朋友聚餐</description>
+  </zhangwu>
+  <zhangwu zwid="5">
+    <flname>股票收入</flname>
+    <money>8000.0</money>
+    <zhanghu>工商银行</zhanghu>
+    <createtime>2016-10-28</createtime>
+    <description>股票大涨</description>
+  </zhangwu>
+  <zhangwu zwid="6">
+    <flname>股票收入</flname>
+    <money>5000.0</money>
+    <zhanghu>工商银行</zhanghu>
+    <createtime>2016-10-28</createtime>
+    <description>股票又大涨</description>
+  </zhangwu>
+  <zhangwu zwid="7">
+    <flname>工资收入</flname>
+    <money>5000.0</money>
+    <zhanghu>交通银行</zhanghu>
+    <createtime>2016-10-28</createtime>
+    <description>又开工资了</description>
+  </zhangwu>
+  <zhangwu zwid="8">
+    <flname>礼金支出</flname>
+    <money>5000.0</money>
+    <zhanghu>现金</zhanghu>
+    <createtime>2016-10-28</createtime>
+    <description>朋友结婚</description>
+  </zhangwu>
+  <zhangwu zwid="9">
+    <flname>其他支出</flname>
+    <money>1560.0</money>
+    <zhanghu>现金</zhanghu>
+    <createtime>2016-10-29</createtime>
+    <description>丢钱了</description>
+  </zhangwu>
+  <zhangwu zwid="10">
+    <flname>交通支出</flname>
+    <money>2300.0</money>
+    <zhanghu>交通银行</zhanghu>
+    <createtime>2016-10-29</createtime>
+    <description>油价还在涨啊</description>
+  </zhangwu>
+  <zhangwu zwid="11">
+    <flname>吃饭支出</flname>
+    <money>1000.0</money>
+    <zhanghu>工商银行</zhanghu>
+    <createtime>2016-10-29</createtime>
+    <description>又吃饭</description>
+  </zhangwu>
+  <zhangwu zwid="12">
+    <flname>工资收入</flname>
+    <money>1000.0</money>
+    <zhanghu>现金</zhanghu>
+    <createtime>2016-10-30</createtime>
+    <description>开资</description>
+  </zhangwu>
+</ZhangWu>
